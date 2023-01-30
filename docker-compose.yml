@@ -1,0 +1,41 @@
+#CMS1
+
+version: '3'
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: 172.174.168.180:80
+      WORDPRESS_DB_USER: carlitos2002
+      WORDPRESS_DB_PASSWORD: carlitos2002
+      WORDPRESS_DB_NAME: database
+
+#CMS2
+
+version: '3'
+services:
+  joomla:
+    image: joomla:latest
+    ports:
+      - "80:80"
+    environment:
+      JOOMLA_DB_HOST: 172.174.168.180:80
+      JOOMLA_DB_USER: carlitos2002
+      JOOMLA_DB_PASSWORD: carlitos2002
+      JOOMLA_DB_NAME: database
+
+#base de datos
+
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: carlitos2002
+      MYSQL_DATABASE: database
+      MYSQL_USER: carlitos2002
+      MYSQL_PASSWORD: carlitos2002
+    ports:
+      - "80:3306"
